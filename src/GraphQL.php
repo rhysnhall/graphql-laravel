@@ -339,6 +339,9 @@ class GraphQL
                 /** @var Field $field */
                 $field = $field->toArray();
             }
+            if(\is_object($field)) {
+              $field = $field->toArray();
+            }
             $name = is_numeric($name) ? $field['name'] : $name;
             $field['name'] = $name;
             $typeFields[$name] = $field;
